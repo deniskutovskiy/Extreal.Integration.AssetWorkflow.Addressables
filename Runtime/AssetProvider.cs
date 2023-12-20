@@ -217,7 +217,7 @@ namespace Extreal.Integration.AssetWorkflow.Addressables
             Addressables.Release(handle);
             if (exception != null)
             {
-                ExceptionDispatchInfo.Throw(exception);
+                ExceptionDispatchInfo.Capture(exception).Throw();
             }
         }
     }

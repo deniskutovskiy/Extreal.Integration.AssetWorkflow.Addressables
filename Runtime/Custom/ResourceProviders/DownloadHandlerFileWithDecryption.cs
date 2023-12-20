@@ -10,7 +10,7 @@ namespace Extreal.Integration.AssetWorkflow.Addressables.Custom.ResourceProvider
     /// <summary>
     /// Class for downloading and decrypting encrypted files.
     /// </summary>
-    public class DownloadHandlerFileWithDecryption : DownloadHandlerScript
+    public class DownloadHandlerFileWithDecryption : DownloadHandlerScript, IDisposable
     {
         private readonly string path;
         private readonly MemoryStream memoryStream;
@@ -93,7 +93,7 @@ namespace Extreal.Integration.AssetWorkflow.Addressables.Custom.ResourceProvider
         }
 
         /// <inheritdoc/>
-        public override void Dispose()
+        public new void Dispose()
         {
             var shouldDeleteFile = fileStream.Length == 0;
 
